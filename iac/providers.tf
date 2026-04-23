@@ -10,14 +10,3 @@ terraform {
 provider "docker" {
   host = "npipe:////./pipe/docker_engine"
 }
-
-# Pull image
-resource "docker_image" "ubuntu" {
-  name = "ubuntu:latest"
-}
-
-# Create container
-resource "docker_container" "foo" {
-  image = docker_image.ubuntu.name
-  name  = "foo"
-}
